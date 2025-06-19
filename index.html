@@ -68,7 +68,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6"></script>
     <script>
-      const _supabase = supabase.createClient(
+      const mySupabase = supabase.createClient(
         "https://hqzkuxdxbdqhtufucruc.supabase.co",
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhxemt1eGR4YmRxaHR1ZnVjcnVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAzNjQwNTYsImV4cCI6MjA2NTk0MDA1Nn0.wKPpnC0JDxkMJbrxsh_F_jRT08Y0gB9yepRgEo5LXfg"
       );
@@ -77,7 +77,7 @@
       const id = urlParams.get("id");
 
       async function cargarConductor() {
-        const { data, error } = await _supabase
+        const { data, error } = await mySupabase
           .from("conductores")
           .select("*")
           .eq("id", id)
