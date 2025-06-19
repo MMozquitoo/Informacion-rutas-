@@ -77,13 +77,20 @@
       const id = urlParams.get("id");
 
       async function cargarConductor() {
-        const { data, error } = await mySupabase
-          .from("conductores")
-          .select("*")
-          .eq("id", id)
-          .single();
+        try {
+          const { data, error } = await mySupabase
+            .from("conductores")
+            .select("*", { head: false })
+            .eq("id", id)
+            .single();
 
-        if (data) {
+          if (error || !data) {
+            document.getElementById("contenedor").innerHTML =
+              "<p>No se encontró conductor o hubo un error.</p>";
+            console.error("Error al cargar datos:", error);
+            return;
+          }
+
           document.getElementById("nombre").textContent = data.nombre_conductor;
           document.getElementById("placa").textContent = data.placa_vehiculo;
           document.getElementById("telefono").textContent =
@@ -107,9 +114,10 @@
             data.id_auxiliar_ruta;
           document.getElementById("celular_auxiliar_ruta").textContent =
             data.celular_auxiliar_ruta;
-        } else {
+        } catch (err) {
           document.getElementById("contenedor").innerHTML =
-            "<p>No se encontró conductor.</p>";
+            "<p>Error inesperado al consultar datos.</p>";
+          console.error("Excepción al consultar Supabase:", err);
         }
       }
 
