@@ -71,9 +71,9 @@
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
 
-      const supabase = supabase.createClient(
-        "https://TU-PROYECTO.supabase.co",
-        "TU-CLAVE-ANON"
+      const supabase = Supabase.createClient(
+        "https://hqzkuxdxbdqhtufucruc.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhxemt1eGR4YmRxaHR1ZnVjcnVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAzNjQwNTYsImV4cCI6MjA2NTk0MDA1Nn0.wKPpnC0JDxkMJbrxsh_F_jRT08Y0gB9yepRgEo5LXfg"
       );
 
       async function cargarConductor() {
