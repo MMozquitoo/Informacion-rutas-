@@ -74,15 +74,21 @@
       );
 
       const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get("id");
+      const id = Number(urlParams.get("id"));
+      if (!id) {
+        document.getElementById("contenedor").innerHTML =
+          "<p>Error: ID no proporcionado en la URL.</p>";
+        throw new Error("ID inválido o no definido");
+      }
+      console.log("Tipo de id:", typeof id, "Valor:", id);
 
       async function cargarConductor() {
         try {
           const { data, error } = await mySupabase
             .from("conductores")
-            .select("*", { head: false })
+            .select("*")
             .eq("id", id)
-            .single();
+            .maybeSingle();
 
           if (error || !data) {
             document.getElementById("contenedor").innerHTML =
