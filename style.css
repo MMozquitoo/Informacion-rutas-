@@ -1,15 +1,30 @@
-/* Ocultar todos los elementos excepto la placa */
+/* Ocultar todos los elementos excepto la ruta */
 #contenedor > * {
   display: none;
 }
 
-/* Mostrar solo el elemento que contiene la placa */
-#contenedor p:nth-child(2) {
+/* Mostrar solo el elemento que contiene la ruta */
+#contenedor p:nth-child(3) {
   display: block;
 }
 
-/* Estilos adicionales para que la placa se vea bien */
-#contenedor p:nth-child(2) {
+/* Agregar mensaje antes de la ruta */
+#contenedor::before {
+  content: "Colegio Comfamiliar Vehículo autorizado";
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e3a59;
+  font-weight: bold;
+  padding: 1rem;
+  background: #e8f4fd;
+  border-radius: 8px;
+  border: 2px solid #2e3a59;
+}
+
+/* Estilos para la ruta */
+#contenedor p:nth-child(3) {
   font-size: 2rem;
   text-align: center;
   margin: 2rem 0;
@@ -19,13 +34,13 @@
   border: 2px solid #2e3a59;
 }
 
-#contenedor p:nth-child(2) strong {
+#contenedor p:nth-child(3) strong {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
 
-#contenedor p:nth-child(2) span {
+#contenedor p:nth-child(3) span {
   font-size: 2.5rem;
   font-weight: bold;
   color: #2e3a59;
