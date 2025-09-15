@@ -1,9 +1,14 @@
-/* Ocultar todos los elementos excepto la ruta */
+/* Ocultar todos los elementos excepto la placa y la ruta */
 #contenedor > * {
   display: none;
 }
 
-/* Mostrar solo el elemento que contiene la ruta */
+/* Mostrar el elemento que contiene la placa */
+#contenedor p:nth-child(2) {
+  display: block;
+}
+
+/* Mostrar el elemento que contiene la ruta */
 #contenedor p:nth-child(3) {
   display: block;
 }
@@ -23,11 +28,34 @@
   border: 2px solid #2e3a59;
 }
 
+/* Estilos para la placa */
+#contenedor p:nth-child(2) {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #2e3a59;
+}
+
+#contenedor p:nth-child(2) strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+#contenedor p:nth-child(2) span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2e3a59;
+}
+
 /* Estilos para la ruta */
 #contenedor p:nth-child(3) {
   font-size: 2rem;
   text-align: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 1rem;
   background: #f8f9fa;
   border-radius: 8px;
